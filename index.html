@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lantern Road Tours · Small-group tours from Khiva (sample website)</title>
+  <meta name="description" content="Sample website for a fictional tour company in Khiva, Uzbekistan. Small-group tours of Khiva, Bukhara and Samarkand.">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- intro: a lantern lights up, then the city gates open -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="gate gate-l"></div>
+  <div class="gate gate-r"></div>
+  <div class="pl-center">
+    <svg class="pl-lantern" viewBox="0 0 80 100">
+      <defs>
+        <radialGradient id="plGlow"><stop offset="0" stop-color="#F6D7A6" stop-opacity=".9"/><stop offset="1" stop-color="#F6D7A6" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle class="pl-glow" cx="40" cy="52" r="40" fill="url(#plGlow)"/>
+      <circle class="draw" cx="40" cy="10" r="5" pathLength="1"/>
+      <path class="draw" style="--dl:.15s" d="M24 22 H56 L50 30 H30 Z" pathLength="1"/>
+      <rect class="draw" style="--dl:.3s" x="26" y="30" width="28" height="40" rx="6" pathLength="1"/>
+      <rect class="pl-flame" x="33" y="38" width="14" height="24" rx="4"/>
+      <path class="draw" style="--dl:.45s" d="M22 72 H58 V78 H22 Z" pathLength="1"/>
+    </svg>
+    <p class="pl-name">Lantern Road <em>Tours</em></p>
+    <div class="pl-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="progress" aria-hidden="true"><span class="progress-fill"></span><span class="progress-dot"></span></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<a class="skip" href="#main"><span class="t-en">Skip to content</span><span class="t-uz">Asosiy qismga o‘tish</span></a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Lantern Road Tours">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="4" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M10 9h12l-2 3H12z" fill="currentColor"/>
+        <rect x="10.5" y="12" width="11" height="13" rx="2" fill="#B5562C"/>
+        <rect class="brand-flame" x="13" y="14.5" width="6" height="8" rx="1.2" fill="#F6D7A6"/>
+        <path d="M9 25h14v2.5H9z" fill="currentColor"/>
+      </svg>
+      <span class="brand-name">Lantern Road <em>Tours</em></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <a href="#tours"><span class="t-en">Tours</span><span class="t-uz">Turlar</span></a>
+      <a href="#route"><span class="t-en">Route</span><span class="t-uz">Yo‘nalish</span></a>
+      <a href="#itinerary"><span class="t-en">Itinerary</span><span class="t-uz">Dastur</span></a>
+      <a href="#prices"><span class="t-en">Prices</span><span class="t-uz">Narxlar</span></a>
+      <a href="#contact"><span class="t-en">Contact</span><span class="t-uz">Aloqa</span></a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="uz" aria-pressed="false">O‘Z</button>
+      </div>
+      <a class="btn btn-small magnetic" href="#contact"><span class="t-en">Plan a trip</span><span class="t-uz">Sayohat rejalash</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="sr-only t-en">Menu</span><span class="sr-only t-uz">Menyu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow light cities">
+          <span class="t-en"><span>Khiva</span> · <span>Bukhara</span> · <span>Samarkand</span></span>
+          <span class="t-uz"><span>Xiva</span> · <span>Buxoro</span> · <span>Samarqand</span></span>
+        </p>
+        <h1 class="split">
+          <span class="t-en">Small-group journeys through the Silk Road cities of Uzbekistan</span>
+          <span class="t-uz">O‘zbekistonning Ipak yo‘li shaharlari bo‘ylab kichik guruhli sayohatlar</span>
+        </h1>
+        <p class="lead">
+          <span class="t-en">We start in Khiva, with local guides who grew up beside the old city walls.</span>
+          <span class="t-uz">Sayohat Xivadan boshlanadi: eski shahar devorlari yonida o‘sgan mahalliy gidlar bilan.</span>
+        </p>
+        <div class="hero-buttons">
+          <a class="btn magnetic" href="#tours"><span class="t-en">See our tours</span><span class="t-uz">Turlarni ko‘rish</span></a>
+          <a class="btn btn-ghost magnetic" href="#contact"><span class="t-en">Plan a private trip</span><span class="t-uz">Shaxsiy sayohat rejalash</span></a>
+        </div>
+        <dl class="stats">
+          <div><dt data-count="2019" data-from="1989">2019</dt><dd><span class="t-en">founded in Urgench</span><span class="t-uz">Urganchda tashkil etilgan</span></dd></div>
+          <div><dt data-count="12">12</dt><dd><span class="t-en">licensed local guides</span><span class="t-uz">litsenziyali mahalliy gid</span></dd></div>
+          <div><dt data-count="4">4</dt><dd><span class="t-en">languages spoken</span><span class="t-uz">tilda gaplashamiz</span></dd></div>
+        </dl>
+        <p class="sky-tip"><span class="t-en">Tip: click the night sky to release a lantern</span><span class="t-uz">Maslahat: chiroq uchirish uchun tungi osmonga bosing</span></p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 560 440" class="skyline">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F6D7A6" stop-opacity=".95"/>
+              <stop offset="45%" stop-color="#F6D7A6" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#F6D7A6" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="shine" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#fff" stop-opacity=".6"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="kalta"><path d="M150 330 L250 330 L241 168 L159 168 Z"/></clipPath>
+            <clipPath id="khoja"><path d="M352 330 L384 330 L377 92 L359 92 Z"/></clipPath>
+          </defs>
+
+          <!-- far layer: moon and stars -->
+          <g class="layer" data-depth="0.25">
+            <g class="moon-wrap">
+              <circle class="moon-glow" cx="430" cy="118" r="96" fill="url(#glow)"/>
+              <circle cx="430" cy="118" r="30" fill="#F6E3C1"/>
+              <circle cx="420" cy="109" r="5" fill="#EAD2A6" opacity=".7"/>
+              <circle cx="440" cy="128" r="3.5" fill="#EAD2A6" opacity=".6"/>
+              <circle cx="436" cy="104" r="2.2" fill="#EAD2A6" opacity=".6"/>
+            </g>
+            <g class="stars" fill="#F6F0E6">
+              <circle cx="60" cy="60" r="1.6"/><circle cx="120" cy="110" r="1.2"/><circle cx="210" cy="52" r="1.4"/>
+              <circle cx="290" cy="96" r="1.1"/><circle cx="520" cy="210" r="1.3"/><circle cx="500" cy="40" r="1.1"/>
+              <circle cx="30" cy="170" r="1.2"/><circle cx="250" cy="130" r="1"/><circle cx="160" cy="30" r="1.3"/>
+              <circle cx="340" cy="40" r="1.2"/><circle cx="545" cy="120" r="1"/><circle cx="90" cy="220" r="1.1"/>
+            </g>
+          </g>
+
+          <!-- middle layer: dunes -->
+          <g class="layer" data-depth="0.45">
+            <path d="M0 300 Q70 268 140 290 T280 284 T420 288 T560 276 V340 H0 Z" fill="#26334F"/>
+          </g>
+
+          <!-- near layer: buildings that grow up from the ground -->
+          <g class="layer" data-depth="0.7">
+            <g class="grow g1">
+              <path d="M28 330 V214 H128 V330 Z" fill="#A8603A"/>
+              <path d="M52 330 V262 Q78 226 104 262 V330 Z" fill="#1F2A44"/>
+              <path d="M28 214 H128 V226 H28 Z" fill="#1B6F7A"/>
+              <g fill="#8FD3D9"><rect x="36" y="236" width="10" height="10"/><rect x="110" y="236" width="10" height="10"/></g>
+              <path class="gate-light" d="M60 330 V272 Q78 248 96 272 V330 Z" fill="#F5B66B" opacity=".25"/>
+            </g>
+            <g class="grow g2">
+              <g clip-path="url(#kalta)">
+                <rect x="140" y="160" width="120" height="180" fill="#1B6F7A"/>
+                <g fill="#8FD3D9"><rect x="140" y="182" width="120" height="10"/><rect x="140" y="226" width="120" height="6"/><rect x="140" y="270" width="120" height="10"/></g>
+                <g fill="#F6F0E6"><rect x="140" y="200" width="120" height="4"/><rect x="140" y="246" width="120" height="4"/><rect x="140" y="292" width="120" height="4"/></g>
+                <g fill="#B5562C"><rect x="140" y="208" width="120" height="12"/><rect x="140" y="304" width="120" height="8"/></g>
+                <rect class="shimmer" x="140" y="160" width="46" height="180" fill="url(#shine)"/>
+              </g>
+              <path d="M159 168 H241" stroke="#F6F0E6" stroke-width="3"/>
+            </g>
+            <g class="grow g3">
+              <rect x="262" y="262" width="76" height="68" fill="#A8603A"/>
+              <path d="M262 264 Q300 196 338 264 Z" fill="#1B6F7A"/>
+              <path d="M276 250 Q298 216 318 236" stroke="#8FD3D9" stroke-width="3" fill="none" opacity=".8"/>
+              <path d="M300 210 V196" stroke="#F6E3C1" stroke-width="3"/>
+              <rect class="window" x="292" y="282" width="16" height="24" rx="8" fill="#F5B66B"/>
+            </g>
+            <g class="grow g4">
+              <g clip-path="url(#khoja)">
+                <rect x="340" y="80" width="60" height="260" fill="#C98A5E"/>
+                <g fill="#1B6F7A"><rect x="340" y="120" width="60" height="7"/><rect x="340" y="170" width="60" height="7"/><rect x="340" y="220" width="60" height="7"/><rect x="340" y="270" width="60" height="7"/></g>
+                <g fill="#8FD3D9"><rect x="340" y="140" width="60" height="3"/><rect x="340" y="190" width="60" height="3"/><rect x="340" y="240" width="60" height="3"/></g>
+              </g>
+              <rect x="352" y="80" width="32" height="12" rx="2" fill="#1B6F7A"/>
+              <path d="M356 80 Q368 58 380 80 Z" fill="#1B6F7A"/>
+              <path d="M368 62 V48" stroke="#F6E3C1" stroke-width="2.5"/>
+              <circle class="beacon" cx="368" cy="46" r="3" fill="#F6D7A6"/>
+            </g>
+          </g>
+
+          <!-- front layer: the city wall rises last -->
+          <g class="layer" data-depth="1">
+            <g class="wall">
+              <path d="M0 330 H560 V440 H0 Z" fill="#8E4A2C"/>
+              <g fill="#8E4A2C">
+                <path d="M0 330 V312 Q12 300 24 312 V330 Z"/><path d="M40 330 V312 Q52 300 64 312 V330 Z"/>
+                <path d="M80 330 V312 Q92 300 104 312 V330 Z"/><path d="M120 330 V312 Q132 300 144 312 V330 Z"/>
+                <path d="M160 330 V312 Q172 300 184 312 V330 Z"/><path d="M200 330 V312 Q212 300 224 312 V330 Z"/>
+                <path d="M240 330 V312 Q252 300 264 312 V330 Z"/><path d="M280 330 V312 Q292 300 304 312 V330 Z"/>
+                <path d="M320 330 V312 Q332 300 344 312 V330 Z"/><path d="M360 330 V312 Q372 300 384 312 V330 Z"/>
+                <path d="M400 330 V312 Q412 300 424 312 V330 Z"/><path d="M440 330 V312 Q452 300 464 312 V330 Z"/>
+                <path d="M480 330 V312 Q492 300 504 312 V330 Z"/><path d="M520 330 V312 Q532 300 544 312 V330 Z"/>
+              </g>
+              <path d="M0 360 H560" stroke="#A8603A" stroke-width="2" opacity=".6"/>
+              <path d="M0 396 H560" stroke="#A8603A" stroke-width="2" opacity=".4"/>
+              <g class="lights" fill="#F6D7A6">
+                <rect x="66" y="370" width="7" height="11" rx="3.5"/><rect x="186" y="376" width="7" height="11" rx="3.5"/>
+                <rect x="318" y="368" width="7" height="11" rx="3.5"/><rect x="458" y="374" width="7" height="11" rx="3.5"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#tours"><span class="sr-only t-en">Scroll down</span><span class="sr-only t-uz">Pastga</span><span class="mouse" aria-hidden="true"><span class="wheel"></span></span></a>
+    <div class="tile-band" aria-hidden="true"></div>
+  </section>
+
+  <!-- moving band of place names -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="t-en">Khiva ✦ Bukhara ✦ Samarkand ✦ Itchan Kala ✦ Kalta Minor ✦ Registan ✦ Ayaz Kala ✦ Silk Road ✦&nbsp;</span>
+      <span class="t-uz">Xiva ✦ Buxoro ✦ Samarqand ✦ Ichan qal’a ✦ Kalta Minor ✦ Registon ✦ Ayozqal’a ✦ Ipak yo‘li ✦&nbsp;</span>
+      <span class="t-en">Khiva ✦ Bukhara ✦ Samarkand ✦ Itchan Kala ✦ Kalta Minor ✦ Registan ✦ Ayaz Kala ✦ Silk Road ✦&nbsp;</span>
+      <span class="t-uz">Xiva ✦ Buxoro ✦ Samarqand ✦ Ichan qal’a ✦ Kalta Minor ✦ Registon ✦ Ayozqal’a ✦ Ipak yo‘li ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- TOURS -->
+  <section class="section has-stars" id="tours">
+    <div class="float-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="wrap">
+      <p class="eyebrow"><span class="t-en">Our tours</span><span class="t-uz">Turlarimiz</span></p>
+      <h2><span class="t-en">Three ways to discover Khorezm and beyond</span><span class="t-uz">Xorazm va undan narini kashf etishning uch yo‘li</span></h2>
+      <div class="cards three">
+        <article class="card tilt">
+          <span class="pill"><span class="t-en">Half day</span><span class="t-uz">Yarim kun</span></span>
+          <h3><span class="t-en">Heritage Walk</span><span class="t-uz">Meros sayri</span></h3>
+          <p><span class="t-en">A guided walk through Itchan Kala, the walled inner city of Khiva, with tea in a family courtyard.</span><span class="t-uz">Xivaning devor bilan o‘ralgan ichki shahri Ichan qal’a bo‘ylab gid bilan sayr va oilaviy hovlida choy.</span></p>
+          <p class="price"><span class="t-en">from</span><span class="t-uz">narxi</span> <strong data-count="35" data-prefix="$">$35</strong></p>
+        </article>
+        <article class="card tilt">
+          <span class="pill"><span class="t-en">1 day</span><span class="t-uz">1 kun</span></span>
+          <h3><span class="t-en">Desert Fortresses</span><span class="t-uz">Cho‘l qal’alari</span></h3>
+          <p><span class="t-en">The ancient clay fortresses of Ayaz Kala and Toprak Kala, with lunch at a yurt camp.</span><span class="t-uz">Ayozqal’a va Tuproqqal’aning qadimiy loy qal’alari, o‘tov lagerida tushlik bilan.</span></p>
+          <p class="price"><span class="t-en">from</span><span class="t-uz">narxi</span> <strong data-count="120" data-prefix="$">$120</strong></p>
+        </article>
+        <article class="card tilt featured">
+          <span class="pill"><span class="t-en">7 days</span><span class="t-uz">7 kun</span></span>
+          <h3><span class="t-en">Silk Road Classic</span><span class="t-uz">Ipak yo‘li klassikasi</span></h3>
+          <p><span class="t-en">Khiva, Bukhara and Samarkand by train and car, with a local guide in every city.</span><span class="t-uz">Xiva, Buxoro va Samarqand: poyezd va mashinada, har bir shaharda mahalliy gid bilan.</span></p>
+          <p class="price"><span class="t-en">from</span><span class="t-uz">narxi</span> <strong data-count="890" data-prefix="$">$890</strong></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILK ROAD ROUTE: the route draws itself while you scroll -->
+  <section class="route" id="route">
+    <div class="route-sticky">
+      <div class="wrap route-grid">
+        <div class="route-copy">
+          <p class="eyebrow light"><span class="t-en">The Silk Road route</span><span class="t-uz">Ipak yo‘li yo‘nalishi</span></p>
+          <h2><span class="t-en">From Khiva to Samarkand by lantern light</span><span class="t-uz">Xivadan Samarqandgacha chiroq yo‘li bo‘ylab</span></h2>
+          <ol class="route-stops">
+            <li data-at="0">
+              <span class="stop-num">01</span>
+              <div>
+                <h3><span class="t-en">Khiva</span><span class="t-uz">Xiva</span></h3>
+                <p><span class="t-en">Itchan Kala became Uzbekistan’s first UNESCO World Heritage Site in 1990.</span><span class="t-uz">Ichan qal’a 1990-yilda O‘zbekistondagi birinchi YuNESKO Butunjahon merosi obyekti bo‘ldi.</span></p>
+              </div>
+            </li>
+            <li data-at="0.55">
+              <span class="stop-num">02</span>
+              <div>
+                <h3><span class="t-en">Bukhara</span><span class="t-uz">Buxoro</span></h3>
+                <p><span class="t-en">Its historic centre holds more than 140 architectural monuments.</span><span class="t-uz">Tarixiy markazida 140 dan ortiq me’moriy yodgorlik bor.</span></p>
+              </div>
+            </li>
+            <li data-at="1">
+              <span class="stop-num">03</span>
+              <div>
+                <h3><span class="t-en">Samarkand</span><span class="t-uz">Samarqand</span></h3>
+                <p><span class="t-en">A crossroads of cultures on the Silk Road for more than two thousand years.</span><span class="t-uz">Ikki ming yildan ortiq vaqtdan beri Ipak yo‘lidagi madaniyatlar chorrahasi.</span></p>
+              </div>
+            </li>
+          </ol>
+          <p class="route-hint"><span class="t-en">Keep scrolling to travel the route</span><span class="t-uz">Yo‘nalish bo‘ylab yurish uchun pastga aylantiring</span></p>
+        </div>
+
+        <div class="route-map" aria-hidden="true">
+          <div class="map-card">
+            <svg viewBox="0 0 600 440">
+              <defs>
+                <radialGradient id="tGlow"><stop offset="0" stop-color="#FFE2A8" stop-opacity=".95"/><stop offset="1" stop-color="#F5B66B" stop-opacity="0"/></radialGradient>
+                <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="rgba(31,42,68,.08)" stroke-width="1"/></pattern>
+              </defs>
+              <rect width="600" height="440" rx="14" fill="#F3E6CF"/>
+              <rect width="600" height="440" rx="14" fill="url(#mapGrid)"/>
+
+              <!-- Amu Darya river: the water flows -->
+              <path class="river" d="M470 440 C 410 390, 330 360, 290 336 S 205 240, 170 160 S 125 85, 108 50"/>
+              <text class="river-label t-en" x="232" y="356" transform="rotate(-28 232 356)">Amu Darya</text>
+              <text class="river-label t-uz" x="232" y="356" transform="rotate(-28 232 356)">Amudaryo</text>
+
+              <!-- desert dunes -->
+              <g class="dunes">
+                <path d="M230 170 q12 -10 24 0"/><path d="M262 186 q12 -10 24 0"/><path d="M300 166 q12 -10 24 0"/>
+                <path d="M340 200 q12 -10 24 0"/><path d="M250 214 q12 -10 24 0"/><path d="M380 172 q12 -10 24 0"/>
+              </g>
+              <text class="map-label t-en" x="268" y="150">Kyzylkum desert</text>
+              <text class="map-label t-uz" x="268" y="150">Qizilqum cho‘li</text>
+
+              <!-- compass -->
+              <g transform="translate(530 70)">
+                <circle r="26" fill="none" stroke="rgba(31,42,68,.25)"/>
+                <text x="0" y="-31" text-anchor="middle" class="compass-n">N</text>
+                <g class="compass">
+                  <path d="M0 -22 L5 0 L0 22 L-5 0 Z" fill="#1F2A44"/>
+                  <path d="M-22 0 L0 5 L22 0 L0 -5 Z" fill="#B5562C" opacity=".7"/>
+                </g>
+              </g>
+
+              <!-- route: faint dashes, then the glowing line that grows -->
+              <path class="route-base" d="M142 150 C 190 205, 250 252, 318 278 S 400 300, 428 288"/>
+              <path id="routeLine" class="route-line" d="M142 150 C 190 205, 250 252, 318 278 S 400 300, 428 288"/>
+
+              <!-- cities -->
+              <g class="city" data-at="0" transform="translate(142 150)">
+                <circle class="pulse" r="11"/><circle class="dot" r="7"/>
+                <text class="t-en" x="-14" y="-16" text-anchor="end">Khiva</text><text class="t-uz" x="-14" y="-16" text-anchor="end">Xiva</text>
+              </g>
+              <g class="city" data-at="0.55" transform="translate(318 278)">
+                <circle class="pulse" r="11"/><circle class="dot" r="7"/>
+                <text class="t-en" x="-10" y="34" text-anchor="middle">Bukhara</text><text class="t-uz" x="-10" y="34" text-anchor="middle">Buxoro</text>
+              </g>
+              <g class="city" data-at="1" transform="translate(428 288)">
+                <circle class="pulse" r="11"/><circle class="dot" r="7"/>
+                <text class="t-en" x="12" y="-18">Samarkand</text><text class="t-uz" x="12" y="-18">Samarqand</text>
+              </g>
+
+              <!-- the traveling lantern and its sparkle trail -->
+              <g class="trail"><circle r="4"/><circle r="3.4"/><circle r="2.8"/><circle r="2.2"/><circle r="1.6"/></g>
+              <g class="traveler" transform="translate(142 150)">
+                <g class="t-body">
+                  <circle r="22" fill="url(#tGlow)"/>
+                  <path d="M-7 -9 Q-7 -13 0 -13 Q7 -13 7 -9 L5 9 L-5 9 Z" fill="#E98A42"/>
+                  <ellipse cx="0" cy="6" rx="3" ry="1.6" fill="#FFF4D6"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="section alt" id="destinations">
+    <div class="wrap">
+      <p class="eyebrow"><span class="t-en">Destinations</span><span class="t-uz">Shaharlar</span></p>
+      <h2><span class="t-en">Three cities on UNESCO’s World Heritage List</span><span class="t-uz">YuNESKO Butunjahon merosi ro‘yxatidagi uch shahar</span></h2>
+      <div class="cards three">
+        <article class="card plain tilt">
+          <svg class="city-icon draw-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path pathLength="1" d="M28 58 L30 14 H34 L36 58 Z"/><path pathLength="1" d="M27 14 H37"/><path pathLength="1" d="M29 14 Q32 6 35 14"/>
+            <path pathLength="1" d="M32 6 V2"/><path pathLength="1" d="M29.5 26 H34.5 M29 38 H35 M28.6 48 H35.4"/><path pathLength="1" d="M20 58 H44"/>
+          </svg>
+          <h3><span class="t-en">Khiva</span><span class="t-uz">Xiva</span></h3>
+          <p><span class="t-en">Itchan Kala became Uzbekistan’s first UNESCO World Heritage Site in 1990.</span><span class="t-uz">Ichan qal’a 1990-yilda O‘zbekistondagi birinchi YuNESKO Butunjahon merosi obyekti bo‘ldi.</span></p>
+          <p class="must"><span class="t-en">Must see: Kalta Minor and the Islam Khoja Minaret</span><span class="t-uz">Albatta ko‘ring: Kalta Minor va Islomxo‘ja minorasi</span></p>
+        </article>
+        <article class="card plain tilt">
+          <svg class="city-icon draw-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path pathLength="1" d="M10 58 V40 Q22 22 34 40 V58"/><path pathLength="1" d="M10 40 H34"/><path pathLength="1" d="M44 58 L46 16 H50 L52 58"/>
+            <path pathLength="1" d="M45 16 H51 M46 16 Q48 10 50 16"/><path pathLength="1" d="M6 58 H58"/>
+          </svg>
+          <h3><span class="t-en">Bukhara</span><span class="t-uz">Buxoro</span></h3>
+          <p><span class="t-en">Its historic centre holds more than 140 architectural monuments.</span><span class="t-uz">Tarixiy markazida 140 dan ortiq me’moriy yodgorlik bor.</span></p>
+          <p class="must"><span class="t-en">Must see: the Kalyan Minaret and the Ark fortress</span><span class="t-uz">Albatta ko‘ring: Minorai Kalon va Ark qal’asi</span></p>
+        </article>
+        <article class="card plain tilt">
+          <svg class="city-icon draw-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path pathLength="1" d="M6 58 V30 H22 V58"/><path pathLength="1" d="M10 58 V44 Q14 36 18 44 V58"/>
+            <path pathLength="1" d="M24 58 V22 H40 V58"/><path pathLength="1" d="M28 58 V38 Q32 28 36 38 V58"/>
+            <path pathLength="1" d="M42 58 V30 H58 V58"/><path pathLength="1" d="M46 58 V44 Q50 36 54 44 V58"/>
+            <path pathLength="1" d="M23 22 V12 M41 22 V12"/><path pathLength="1" d="M2 58 H62"/>
+          </svg>
+          <h3><span class="t-en">Samarkand</span><span class="t-uz">Samarqand</span></h3>
+          <p><span class="t-en">A crossroads of cultures on the Silk Road for more than two thousand years.</span><span class="t-uz">Ikki ming yildan ortiq vaqtdan beri Ipak yo‘lidagi madaniyatlar chorrahasi.</span></p>
+          <p class="must"><span class="t-en">Must see: Registan Square and Shah-i-Zinda</span><span class="t-uz">Albatta ko‘ring: Registon maydoni va Shohi Zinda</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARY: a sun travels across the three days -->
+  <section class="section dark" id="itinerary">
+    <div class="wrap">
+      <p class="eyebrow light"><span class="t-en">Sample itinerary</span><span class="t-uz">Namuna dastur</span></p>
+      <h2><span class="t-en">Three days in Khiva</span><span class="t-uz">Xivada uch kun</span></h2>
+      <div class="sun-track" aria-hidden="true"><span class="sun"></span></div>
+      <ol class="days">
+        <li>
+          <p class="day-num"><span class="t-en">Day 1</span><span class="t-uz">1-kun</span></p>
+          <h3><span class="t-en">Arrival</span><span class="t-uz">Kelish</span></h3>
+          <p><span class="t-en">Meet your guide at Urgench airport, drive to Khiva and watch the sunset from the Islam Khoja Minaret.</span><span class="t-uz">Urganch aeroportida gid sizni kutib oladi. Xivaga borib, Islomxo‘ja minorasidan quyosh botishini tomosha qilasiz.</span></p>
+        </li>
+        <li>
+          <p class="day-num"><span class="t-en">Day 2</span><span class="t-uz">2-kun</span></p>
+          <h3><span class="t-en">Inside the walls</span><span class="t-uz">Devorlar ichida</span></h3>
+          <p><span class="t-en">A walking tour of Itchan Kala: Kalta Minor, the Juma Mosque and the Tash Hauli Palace.</span><span class="t-uz">Ichan qal’a bo‘ylab piyoda sayr: Kalta Minor, Juma masjidi va Toshhovli saroyi.</span></p>
+        </li>
+        <li>
+          <p class="day-num"><span class="t-en">Day 3</span><span class="t-uz">3-kun</span></p>
+          <h3><span class="t-en">Desert fortresses</span><span class="t-uz">Cho‘l qal’alari</span></h3>
+          <p><span class="t-en">A day trip to Ayaz Kala and Toprak Kala, with lunch at a yurt camp.</span><span class="t-uz">Ayozqal’a va Tuproqqal’aga bir kunlik sayohat, o‘tov lagerida tushlik.</span></p>
+        </li>
+      </ol>
+      <p class="note-light"><span class="t-en">Every evening ends with dinner at a family guesthouse inside the old city.</span><span class="t-uz">Har oqshom eski shahar ichidagi oilaviy mehmonxonada kechki ovqat bilan yakunlanadi.</span></p>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section has-stars" id="why">
+    <div class="float-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="wrap">
+      <p class="eyebrow"><span class="t-en">Why travel with us</span><span class="t-uz">Nega biz bilan</span></p>
+      <h2><span class="t-en">Small groups and local hearts</span><span class="t-uz">Kichik guruhlar va mahalliy samimiyat</span></h2>
+      <div class="cards two">
+        <article class="card feature tilt">
+          <svg class="icon draw-icon" viewBox="0 0 24 24" aria-hidden="true"><circle pathLength="1" cx="9" cy="8" r="3.2"/><path pathLength="1" d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle pathLength="1" cx="17" cy="9" r="2.4"/><path pathLength="1" d="M15.5 13.8c2.9.2 5 2.1 5 5.2"/></svg>
+          <h3><span class="t-en">Local guides</span><span class="t-uz">Mahalliy gidlar</span></h3>
+          <p><span class="t-en">Born and raised in Khorezm, licensed, and fluent in your language.</span><span class="t-uz">Xorazmda tug‘ilib o‘sgan, litsenziyaga ega va sizning tilingizda erkin gapiradi.</span></p>
+        </article>
+        <article class="card feature tilt">
+          <svg class="icon draw-icon" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 11.5 12 5l8 6.5"/><path pathLength="1" d="M6 10v9h12v-9"/><path pathLength="1" d="M10 19v-5h4v5"/></svg>
+          <h3><span class="t-en">Small groups</span><span class="t-uz">Kichik guruhlar</span></h3>
+          <p><span class="t-en">Never more than 12 travellers, so every guest is heard.</span><span class="t-uz">Guruhda 12 kishidan oshmaydi, shuning uchun har bir mehmonga e’tibor beriladi.</span></p>
+        </article>
+        <article class="card feature tilt">
+          <svg class="icon draw-icon" viewBox="0 0 24 24" aria-hidden="true"><rect pathLength="1" x="4" y="5" width="16" height="15" rx="2"/><path pathLength="1" d="M4 10h16M9 3v4M15 3v4"/><path pathLength="1" d="m9.5 15 2 2 3.5-4"/></svg>
+          <h3><span class="t-en">Flexible plans</span><span class="t-uz">Moslashuvchan reja</span></h3>
+          <p><span class="t-en">Private tours on your dates, and changes made within a day.</span><span class="t-uz">O‘zingiz tanlagan sanalarda shaxsiy turlar, o‘zgarishlar bir kun ichida kiritiladi.</span></p>
+        </article>
+        <article class="card feature tilt">
+          <svg class="icon draw-icon" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 18.5V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9z"/><path pathLength="1" d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>
+          <h3><span class="t-en">Help at any hour</span><span class="t-uz">Istalgan soatda yordam</span></h3>
+          <p><span class="t-en">A real person answers your messages during the whole trip.</span><span class="t-uz">Butun sayohat davomida xabarlaringizga haqiqiy inson javob beradi.</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section class="section alt" id="prices">
+    <div class="wrap">
+      <p class="eyebrow"><span class="t-en">Packages · illustrative prices</span><span class="t-uz">Paketlar · namunaviy narxlar</span></p>
+      <h2><span class="t-en">Clear prices, no surprises</span><span class="t-uz">Aniq narxlar, kutilmagan to‘lovlarsiz</span></h2>
+      <div class="table-wrap">
+        <table class="prices">
+          <thead>
+            <tr>
+              <th scope="col"><span class="t-en">Tour</span><span class="t-uz">Tur</span></th>
+              <th scope="col"><span class="t-en">Duration</span><span class="t-uz">Davomiyligi</span></th>
+              <th scope="col"><span class="t-en">Group size</span><span class="t-uz">Guruh</span></th>
+              <th scope="col"><span class="t-en">Price from</span><span class="t-uz">Narxi (dan)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="t-en">Heritage Walk</span><span class="t-uz">Meros sayri</span></td>
+              <td><span class="t-en">4 hours</span><span class="t-uz">4 soat</span></td>
+              <td><span class="t-en">Up to 12</span><span class="t-uz">12 kishigacha</span></td>
+              <td data-count="35" data-prefix="$">$35</td>
+            </tr>
+            <tr>
+              <td><span class="t-en">Desert Fortresses</span><span class="t-uz">Cho‘l qal’alari</span></td>
+              <td><span class="t-en">1 day</span><span class="t-uz">1 kun</span></td>
+              <td><span class="t-en">Up to 8</span><span class="t-uz">8 kishigacha</span></td>
+              <td data-count="120" data-prefix="$">$120</td>
+            </tr>
+            <tr class="hl">
+              <td><span class="t-en">Silk Road Classic</span><span class="t-uz">Ipak yo‘li klassikasi</span> <span class="tag"><span class="t-en">most popular</span><span class="t-uz">eng ommabop</span></span></td>
+              <td><span class="t-en">7 days</span><span class="t-uz">7 kun</span></td>
+              <td><span class="t-en">Up to 12</span><span class="t-uz">12 kishigacha</span></td>
+              <td data-count="890" data-prefix="$">$890</td>
+            </tr>
+            <tr>
+              <td><span class="t-en">Private tour</span><span class="t-uz">Shaxsiy tur</span></td>
+              <td><span class="t-en">Your dates</span><span class="t-uz">Siz tanlagan sanalar</span></td>
+              <td><span class="t-en">1 to 6</span><span class="t-uz">1–6 kishi</span></td>
+              <td><span class="t-en">On request</span><span class="t-uz">So‘rov bo‘yicha</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><span class="t-en">Prices per person are illustrative for a fictional company. They include the guide, entrance tickets and transport inside each city.</span><span class="t-uz">Bir kishi uchun narxlar to‘qima kompaniya uchun namunaviy. Narxga gid, kirish chiptalari va har bir shahar ichidagi transport kiradi.</span></p>
+    </div>
+  </section>
+
+  <!-- BOOKING STEPS: a line fills and lights each step -->
+  <section class="section" id="booking">
+    <div class="wrap">
+      <p class="eyebrow"><span class="t-en">How to book</span><span class="t-uz">Qanday band qilinadi</span></p>
+      <h2><span class="t-en">From first message to first walk in four steps</span><span class="t-uz">Birinchi xabardan birinchi sayrgacha to‘rt qadam</span></h2>
+      <div class="steps-wrap">
+        <div class="steps-line" aria-hidden="true"><span></span></div>
+        <ol class="steps">
+          <li><span class="step-num">01</span><h3><span class="t-en">Choose</span><span class="t-uz">Tanlang</span></h3><p><span class="t-en">Pick a ready tour, or ask us for a private plan.</span><span class="t-uz">Tayyor turni tanlang yoki shaxsiy reja so‘rang.</span></p></li>
+          <li><span class="step-num">02</span><h3><span class="t-en">Get a plan</span><span class="t-uz">Reja oling</span></h3><p><span class="t-en">We send a day-by-day plan within 24 hours.</span><span class="t-uz">24 soat ichida kunma-kun reja yuboramiz.</span></p></li>
+          <li><span class="step-num">03</span><h3><span class="t-en">Confirm</span><span class="t-uz">Tasdiqlang</span></h3><p><span class="t-en">A 20% deposit holds your dates and guide.</span><span class="t-uz">20% oldindan to‘lov sanalaringiz va gidingizni band qiladi.</span></p></li>
+          <li><span class="step-num">04</span><h3><span class="t-en">Travel</span><span class="t-uz">Sayohat qiling</span></h3><p><span class="t-en">Your guide meets you at the airport or train station.</span><span class="t-uz">Gidingiz sizni aeroport yoki vokzalda kutib oladi.</span></p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section dark contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow light">Rahmat · Thank you</p>
+        <h2><span class="t-en">We would love to show you Khiva</span><span class="t-uz">Sizga Xivani ko‘rsatishni istaymiz</span></h2>
+        <p class="lead small"><span class="t-en">Tell us your dates and what you would like to see. We reply within one working day.</span><span class="t-uz">Sanalaringiz va nimalarni ko‘rmoqchi ekaningizni yozing. Bir ish kuni ichida javob beramiz.</span></p>
+        <ul class="contact-list">
+          <li>hello@lanternroad.example</li>
+          <li><span class="t-en">Urgench and Khiva, Uzbekistan</span><span class="t-uz">Urganch va Xiva, O‘zbekiston</span></li>
+        </ul>
+      </div>
+      <form class="form" id="trip-form" novalidate>
+        <label>
+          <span><span class="t-en">Your name</span><span class="t-uz">Ismingiz</span></span>
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>
+          <span><span class="t-en">Travel dates</span><span class="t-uz">Sayohat sanalari</span></span>
+          <input name="dates" type="text" data-ph-en="e.g. 10–14 May" data-ph-uz="masalan, 10–14 may" placeholder="e.g. 10–14 May">
+        </label>
+        <label>
+          <span><span class="t-en">Message</span><span class="t-uz">Xabar</span></span>
+          <textarea name="message" rows="4" data-ph-en="Which tour are you interested in?" data-ph-uz="Qaysi tur sizni qiziqtiradi?" placeholder="Which tour are you interested in?"></textarea>
+        </label>
+        <button class="btn magnetic" type="submit"><span class="t-en">Send request</span><span class="t-uz">So‘rov yuborish</span></button>
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="f-lanterns" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="tile-band thin" aria-hidden="true"></div>
+  <div class="wrap footer-row">
+    <p class="brand-name light">Lantern Road <em>Tours</em></p>
+    <p class="disclaimer">
+      <span class="t-en">Lantern Road Tours is a fictional company. This is a sample website: prices and figures are illustrative, while the facts about Khiva, Bukhara and Samarkand are real.</span>
+      <span class="t-uz">Lantern Road Tours to‘qima kompaniya. Bu namuna sayt: narx va raqamlar namunaviy, Xiva, Buxoro va Samarqand haqidagi ma’lumotlar esa haqiqiy.</span>
+    </p>
+  </div>
+</footer>
+
+<button class="to-top" type="button">
+  <span class="sr-only t-en">Back to top</span><span class="sr-only t-uz">Yuqoriga</span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
